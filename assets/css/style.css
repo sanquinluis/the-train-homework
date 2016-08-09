@@ -1,14 +1,22 @@
 .panel-default>.panel-heading{
-	background-color: rgb(76, 178, 227);
+	background-color: rgb(76, 178, 217);
+}
+h1 {
+	text-decoration-style: wavy;
 }
 
 #overHead {
-	background-color: rgb(122, 135, 151);
+	background-image:url("../images/trainstation.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-color: rgb(176, 178, 217);
 	text-align: center;
 	padding: 60px 60px;
 	border-radius: 5px;
-	color: white;
+	color: rgb(236, 268, 217);
 	margin-top: 10px;
 	margin-bottom: 20px;
+	border-color: rgb(122, 135, 151);
 
 }

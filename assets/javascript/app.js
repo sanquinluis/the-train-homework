@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   var database = firebase.database();
 
    $('#addUser').on("click", function(){
@@ -17,16 +18,18 @@ $(document).ready(function(){
         });
 
    	 });
+   	
+   	database.ref().on('child_added',function(Snapshot){
+		
+		$('table').append('<tr><td>' + Snapshot.val().trainName + '</td></tr>');
+		$('table').append('<tr><td>' + Snapshot.val().destination + '</td></tr>');
 
-
-
-
-
-
-
-
-
-
+		
+		console.log(Snapshot.val().trainName);
+		console.log(Snapshot.val().destination);
+		
+    });
+   	
 
 
 });
