@@ -35,7 +35,8 @@
 		                    <div class="panel-heading">
 		                        <h3 class="panel-title ">Current Train Schedule</h3>
 		                    </div>
-		            <table class="table">
+		            <!--This is where my table starts-->
+		            <table class="table" id="theTimeSchedule">
 		            	<thead>
 			                <tr>
 			                    <th>Train Name</th>
@@ -44,8 +45,8 @@
 			                    <th>Next Arrival</th>
 			                    <th>Minutes Away</th>
 			                </tr>
-		            
 		            	</thead>
+		            	<!--My first hard-code to see what is going on in my table-->
 		            	<tbody>	
 		            		<tr>
 		            			<td>Caribbean Railway</td>
@@ -53,14 +54,15 @@
 		            			<td>30</td>
 		            			<td>18:00</td>
 		            			<td>10</td>
-		            			
 		            		</tr>
 		            	</tbody>
+
 		            </table>
 		           	</div>
 		    </form>
 	    </div>
 	    	<div class="row">
+	    		<!--My forms and input -->
 			    <form class="form">
 		            <div class="panel panel-default">
 		                    <div class="panel-heading">
@@ -79,11 +81,11 @@
 		                          </div>
 		                          <div class="form-group">
 		                            <label for="text">First Train Time(HH:mm-military time):</label>
-		                            <input type="text" class="form-control" id="firsttrainInput">
+		                            <input placeholder="(HH:MM) Miltary Time" type="text" class="form-control" id="firsttrainInput">
 		                          </div>
 		                          <div class="form-group">
 		                             <label for="text">Frequency (min) </label>
-		                             <input type="text" class="form-control" name="Frequency" id="frequencyInput">
+		                             <input placeholder="(:mm) Minutes" type="text" class="form-control" id="frequencyInput">
 		                           </div>
 		                          <button type="submit" class="btn btn-info" id="addUser">Submit</button>
 		                        </form>

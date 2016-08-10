@@ -1,7 +1,7 @@
 $(document).ready(function(){
-
-  var database = firebase.database();
-
+	//firebase is now inside the variable database to be called when ever needed.
+  	var database = firebase.database();
+  	//This on Click event will grab all the data that is put in the input form.
    $('#addUser').on("click", function(){
 
    		var trainName = $("#trainInput").val().trim();
@@ -13,23 +13,22 @@ $(document).ready(function(){
             trainName: trainName,
             destination: destination,
             firstTrain: firstTrain,
-            frequency: frequency
+            frequency: frequency,
+            dateAdded: firebase.database.ServerValue.TIMESTAMP
 
         })
         return false;
-
    	 });
    	
    	database.ref().on('child_added',function(snapshot){
-   		var trainName = snapshot.val().trainName;
-   		var destination = snapshot.val().destination;
-   		var firstTrain = snapshot.val().firstTrain;
-   		var frequency = snapshot.val().frequency;
+   		
+   		var chfirstTrain = snapshot.val().firstTrain;
+   		var chFrequency = snapshot.val().frequency;
 		
-		$('table').append('<tr><td>' + snapshot.val().trainName + 
-			'</td></td>' + destination  + 
-			'</td></td>' + firstTrain +
-			'</td></td>' + frequency);
+		$('#theTimeSchedule').append('<tr><td>' + snapshot.val().trainName + 
+			'</td></td>' + snapshot.val().destination  + 
+			'</td></td>' + snapshot.val().chfirstTrain +
+			'</td></tr>' + snapshot.val().chFrequency);
 		
 		console.log(snapshot.val());
 		console.log(snapshot.val().trainName);
@@ -41,4 +40,4 @@ $(document).ready(function(){
    	
 
 
-});
+},10000);
