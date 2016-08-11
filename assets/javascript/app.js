@@ -23,13 +23,14 @@ $(document).ready(function(){
    	
    	database.ref().on('child_added',function(snapshot){
    		
-   		var chfirstTrain = moment();
+   		var m = moment();
+   		var chfirstTrain = m.moment().subtract(1,'day');
    		var chFrequency = snapshot.val().frequency;
 
 		//Appending the child_add database into a tbody table when the name is inserted in the input.
 		$('#theTimeSchedule > tbody').append('<tr><td>' + snapshot.val().trainName + '</td><td>' +
-			snapshot.val().destination + '</td><td>' + snapshot.val().chfirstTrain + '</td><td>' +
-			snapshot.val().chFrequency + '</td></tr>');
+			snapshot.val().destination + '</td><td>' + snapshot.val().chFrequency + '</td><td>' +
+			snapshot.val().chfirstTrain + '</td></tr>');
 
 
 	
@@ -40,6 +41,7 @@ $(document).ready(function(){
 		console.log(snapshot.val().firstTrain);
 		console.log(snapshot.val().frequency);
 		console.log(chfirstTrain);
+		console.log(moment);
 		
 		
     });
