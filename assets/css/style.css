@@ -1,3 +1,9 @@
+body {
+	background-image:url("../images/puertorico.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
 .panel-default>.panel-heading{
 	background-color: rgb(76, 178, 217);
 }
@@ -21,7 +27,7 @@ h1 {
 }
 
 .loco {
-	
+
 
 }
 
