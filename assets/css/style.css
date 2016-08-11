@@ -1,4 +1,8 @@
-body {
+body,
+html{
+	min-height: 100%;
+}
+body{
 	background-image:url("../images/puertorico.jpg");
 	background-repeat: no-repeat;
 	background-position: center;

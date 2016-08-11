@@ -38,7 +38,7 @@ $(document).ready(function(){
 		console.log(snapshot.val().destination);
 		console.log(snapshot.val().firstTrain);
 		console.log(snapshot.val().frequency);
-		console.log(firebase.database.ServerValue.TIMESTAMP);
+		
 		
     });
    	
