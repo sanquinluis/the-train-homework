@@ -32,36 +32,43 @@ $(document).ready(function(){
    		var timeOftrain = moment(oneMonth).format('HH:mm:ss');
    		//another one, to track the time of the train by the time put on Input.
    		var anotherMonth = moment(timeOftrain,'hh:mm' ).subtract(1, 'month');
-   		var residualTime = moment().diff(moment(anotherMonth), 'minutes');
-   		var timeLeft = residualTime % chFrequency;
-   		var whereIstheTrain = chFrequency - timeLeft; 
-   		var hereIstheTrain = moment().add(whereIstheTrain, 'minutes').format('HH:mm:ss');
+   		
+   		var residualTime = moment().diff(moment(oneMonth), 'minutes');
+   		//Time apart between trains.
+   		var timeRemainder = residualTime % chFrequency;
+   		//math equation to solve the minutes till the next train.
+   		var whereIstheTrain = chFrequency - timeRemainder; 
+   		//next train arrival 
+   		var nextarrival = moment().add(whereIstheTrain, 'minutes').format('HH:mm:ss');
 
 
 		//Appending the child_add database into a tbody table when the name is inserted in the input.
 		$('#theTimeSchedule > tbody').append('<tr><td>' + snapshot.val().trainName + '</td><td>' +
-			snapshot.val().destination + '</td><td>' + snapshot.val().frequency + '</td><td>' +
-			snapshot.val().chfirstTrain + '</td></td>' + hereIstheTrain + '</td></tr>');
+			snapshot.val().destination + '</td><td>' + snapshot.val().frequency + " minutes" + '</td><td>' +
+			nextarrival + '</td><td>' + whereIstheTrain + " minutes" + '</td></tr>');
 
 
-	
-		
-		console.log(snapshot.val());
-		console.log(snapshot.val().trainName);
-		console.log(snapshot.val().destination);
-		console.log(snapshot.val().firstTrain);
-		console.log(snapshot.val().frequency);
-		console.log(snapshot.val().chFrequency);
-		console.log(chfirstTrain);
-		console.log(liveTime);
-		console.log(oneMonth);
-		console.log(timeOftrain);
-		console.log(anotherMonth);
-		console.log(residualTime);
-		console.log('chFrequency - timeLeft ' + whereIstheTrain);
-		console.log('where is the Train ' + hereIstheTrain);
+		// console.log(snapshot.val());
+		// console.log(snapshot.val().trainName);
+		// console.log(snapshot.val().destination);
+		// console.log(snapshot.val().firstTrain);
+		// console.log(snapshot.val().frequency);
+		// console.log(snapshot.val().chFrequency);
+		// console.log(chfirstTrain);
+		console.log("Current Time " + moment(liveTime).format("hh:mm"));
+		console.log("This is the  frequency " + chFrequency);
+		// console.log(oneMonth);
+		console.log("Time of Train " + timeOftrain);
+		// console.log(anotherMonth);
+		console.log("Residual Time " + residualTime);
+		console.log('minutes till arrival ' + whereIstheTrain);
+		console.log('Next Train is at ' + nextarrival);
     });
    	
 
 
-},10000);
+},1000);
+
+
+
+
